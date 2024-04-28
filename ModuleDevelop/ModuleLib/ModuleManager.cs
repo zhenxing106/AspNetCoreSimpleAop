@@ -16,6 +16,10 @@ namespace ModuleLib
         private readonly List<IModule> modules = new List<IModule>();
         public ModuleManager()
         {
+            if (_services != null)
+            {
+                Console.WriteLine(1);
+            }
             var moduleTypes = GetModuleTypes();
 
             foreach (var moduleType in moduleTypes)
@@ -37,9 +41,18 @@ namespace ModuleLib
         }
         private IEnumerable<Type> GetModuleTypes()
         {
-            return Assembly.LoadFrom("D:\\github\\AspNetCoreSimpleAop\\ModuleDevelop\\Service\\bin\\Debug\\net8.0\\Service.dll")
-                .GetTypes()
-                .Where(t => typeof(IModule).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);
+            string path = @"D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\ModuleDevelop\Service\bin\Debug\net8.0\StartupService.dll";
+            if (File.Exists(path))
+            {
+                var list = Assembly.LoadFrom(path)
+              .GetTypes()
+              .Where(t => typeof(IModule).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);
+                return list;
+            }
+            else
+            {
+                throw new Exception("对应的Service.dll 为找到");
+            }
         }
     }
 }

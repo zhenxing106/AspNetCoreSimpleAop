@@ -18,7 +18,11 @@ namespace AutofacRegister
     {
         public IRepository GetRepository(string x)
         {
-            var path = $"{Directory.GetCurrentDirectory()}\\lib\\{x}.Repository.dll";
+
+
+            // Environment.GetEnvironmentVariables();
+             
+            var path = $"{Environment.CurrentDirectory}\\lib\\{x}.Repository.dll";
             var _AssemblyLoadContext = new AssemblyLoadContext(Guid.NewGuid().ToString("N"), true);
             Assembly assembly = null;
             using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))

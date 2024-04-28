@@ -21,7 +21,7 @@ namespace StartupDiagnostics
         /// <param name="appLifetime"></param>
         public FileWatcherService(IHostApplicationLifetime appLifetime)
         {
-            _watchedFolder =Path.Combine(Directory.GetCurrentDirectory(),"lib"); //细化指定类型的dll
+            _watchedFolder = Path.Combine(Environment.CurrentDirectory, "lib"); //细化指定类型的dll
             _appLifetime = appLifetime;
         }
 
@@ -64,7 +64,7 @@ namespace StartupDiagnostics
                 UseShellExecute = false
             };
 
-          
+
             _appLifetime.ApplicationStopped.Register(() =>
             {
                 Process.Start(processStartInfo);

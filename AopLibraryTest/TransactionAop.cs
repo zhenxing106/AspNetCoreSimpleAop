@@ -6,6 +6,7 @@ namespace AopLibraryTest
     {
         public async Task<object> After(object result)
         {
+            await Task.Delay(1);
             Console.WriteLine("事务开启");
             return result;
         }

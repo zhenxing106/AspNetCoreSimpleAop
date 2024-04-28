@@ -37,20 +37,20 @@ namespace StartupDiagnostics
 
             builder.ConfigureServices(services =>
             {
-             
+
                 // Create a factory with a GetServices method that can
                 // be called in middleware to obtain a list of the app's
                 // services.
-                Func<IServiceProvider, IServiceDescriptorsService> factory = 
+                Func<IServiceProvider, IServiceDescriptorsService> factory =
                     provider => new ServiceDescriptorsService(services);
 
                 // Register the factory in the service container.
                 services.AddSingleton(factory);
-                
+
                 // Implement a startup filter that is used to register 
                 // two middleware components.
                 services.AddSingleton<IStartupFilter, DiagnosticMiddlewareStartupFilter>();
-       
+
                 services.Initialize();
                 services.AddSingleton<IStartupFilter, MyControllerFilter>();
                 services.AddSingleton(typeof(PluginManager));
@@ -61,15 +61,23 @@ namespace StartupDiagnostics
     }
 
 
+    /// <summary>
+    /// ¿ØÖÆÆ÷1
+    /// </summary>
     public class MyControllerFilter : IStartupFilter
     {
-       
+
         private readonly PluginManager pluginManager;
-        List<string> controllers = new List<string> { "First","Second" };
+        List<string> controllers = new List<string> { "First", "Second" };
+
+        /// <summary>
+        /// ¿ØÖÆÆ÷1
+        /// </summary>
+        /// <param name="pluginManager"></param>
         public MyControllerFilter(PluginManager pluginManager)
         {
             this.pluginManager = pluginManager;
-            controllers.ForEach(x => pluginManager.LoadPlugins($"{Directory.GetCurrentDirectory()}\\lib\\", $"{x}.Impl.dll"));
+            controllers.ForEach(x => pluginManager.LoadPlugins($"{Environment.CurrentDirectory}\\lib\\", $"{x}.Impl.dll"));
         }
         Action<IApplicationBuilder> IStartupFilter.Configure(Action<IApplicationBuilder> next)
         {
@@ -154,22 +162,22 @@ namespace StartupDiagnostics
                             <h1>All Services</h1>
                             <ul>");
 
-                        var serviceDescriptorService = 
+                        var serviceDescriptorService =
                             context.RequestServices.GetService<IServiceDescriptorsService>();
 
-                        foreach(var service in serviceDescriptorService.GetServices())
+                        foreach (var service in serviceDescriptorService.GetServices())
                         {
                             sb.Append($"<li><b>{service.FullName}</b> ({service.Lifetime})");
                             if (!string.IsNullOrEmpty(service.ImplementationType))
                             {
                                 sb.Append($"<br>{service.ImplementationType}</li>");
-                                
+
                             }
                             else
                             {
                                 sb.Append($"</li>");
                             }
-                            
+
                         }
 
                         sb.Append("</ul></body></html>");
@@ -198,7 +206,7 @@ namespace StartupDiagnostics
         /// <summary>
         /// Construct the diagnostic middleware.
         /// </summary>
-        public DiagnosticMiddleware(RequestDelegate next, 
+        public DiagnosticMiddleware(RequestDelegate next,
                                     ILoggerFactory loggerFactory,
                                     IWebHostEnvironment env)
         {
@@ -223,7 +231,7 @@ namespace StartupDiagnostics
             {
                 var logger = _loggerFactory.CreateLogger("Requests");
 
-                logger.LogDebug("Received request: {Method} {Path}", 
+                logger.LogDebug("Received request: {Method} {Path}",
                     ctx.Request.Method, ctx.Request.Path);
 
                 ctx.Response.ContentType = "text/plain";

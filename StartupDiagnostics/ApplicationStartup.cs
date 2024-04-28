@@ -14,8 +14,16 @@ using System.Threading.Tasks;
 
 namespace StartupDiagnostics
 {
+    /// <summary>
+    /// ApplicationStartup
+    /// </summary>
     public static class ApplicationStartup
     {
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static IServiceCollection Initialize(this
            IServiceCollection services
         )
