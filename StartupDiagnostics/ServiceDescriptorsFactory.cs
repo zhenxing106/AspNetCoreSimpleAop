@@ -65,7 +65,7 @@ namespace ServiceDescriptorsFactory
                     { 
                         FullName = srv.ServiceType.FullName, 
                         Lifetime = srv.Lifetime.ToString(), 
-                        ImplementationType = srv.ImplementationType?.FullName
+                        ImplementationType = srv.ImplementationType.FullName
                     });
             }
         }

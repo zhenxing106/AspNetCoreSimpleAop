@@ -7,17 +7,29 @@ using System.Threading.Tasks;
 
 namespace StartupDiagnostics
 {
+    /// <summary>
+    /// 文件监控
+    /// </summary>
     public class FileWatcherService : IHostedService
     {
         private readonly string _watchedFolder;
         private FileSystemWatcher _fileSystemWatcher;
         private readonly IHostApplicationLifetime _appLifetime;
+        /// <summary>
+        /// 文件监控
+        /// </summary>
+        /// <param name="appLifetime"></param>
         public FileWatcherService(IHostApplicationLifetime appLifetime)
         {
             _watchedFolder =Path.Combine(Directory.GetCurrentDirectory(),"lib"); //细化指定类型的dll
             _appLifetime = appLifetime;
         }
 
+        /// <summary>
+        /// 启动器
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public Task StartAsync(CancellationToken cancellationToken)
         {
             _fileSystemWatcher = new FileSystemWatcher(_watchedFolder);
@@ -31,6 +43,11 @@ namespace StartupDiagnostics
             return Task.CompletedTask;
         }
 
+        /// <summary>
+        /// 停止器
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public Task StopAsync(CancellationToken cancellationToken)
         {
             _fileSystemWatcher.Dispose();

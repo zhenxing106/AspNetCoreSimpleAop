@@ -19,31 +19,31 @@ namespace AopLibrary.CusImplement
         private ISimpleAop _aop { get; set; }
         private T Imp => _instance;
 
-        public async Task<TResponse?> Invoke<TResponse>(string methodName, object?[]? args)
+        public async Task<TResponse> Invoke<TResponse>(string methodName, object[] args)
         {
             if (string.IsNullOrEmpty(methodName))
             {
                 throw new Exception("需要调用的方法名不能为空");
             }
-            var method = _instance.GetType().GetMethods().Where(x => x.DeclaringType.Name == _instance.GetType().Name).Where(x => x.Name.ToLower().Equals(methodName?.ToLower())).FirstOrDefault();
+            var method = _instance.GetType().GetMethods().Where(x => x.DeclaringType.Name == _instance.GetType().Name).Where(x => x.Name.ToLower().Equals(methodName.ToLower())).FirstOrDefault();
             if (method == null)
             {
                 throw new Exception($"方法{methodName}不存在请检查");
             }
             var task = await InvokeCore(method, args);
             if (task.GetType().BaseType.Name == "Task")
-                return await (Task<TResponse?>)task;
+                return await (Task<TResponse>)task;
             else
-                return (TResponse?)task;
+                return (TResponse)task;
         }
 
-        public async Task Invoke(string methodName, object?[]? args)
+        public async Task Invoke(string methodName, object[] args)
         {
             if (string.IsNullOrEmpty(methodName))
             {
                 throw new Exception("需要调用的方法名不能为空");
             }
-            var method = _instance.GetType().GetMethods().Where(x => x.DeclaringType.Name == _instance.GetType().Name).Where(x => x.Name.ToLower().Equals(methodName?.ToLower())).FirstOrDefault();
+            var method = _instance.GetType().GetMethods().Where(x => x.DeclaringType.Name == _instance.GetType().Name).Where(x => x.Name.ToLower().Equals(methodName.ToLower())).FirstOrDefault();
             if (method == null)
             {
                 throw new Exception($"方法{methodName}不存在请检查");
@@ -51,7 +51,7 @@ namespace AopLibrary.CusImplement
             await InvokeCore(method, args);
         }
 
-        private async Task<object?> InvokeCore(MethodInfo? targetMethod, object?[]? args)
+        private async Task<object> InvokeCore(MethodInfo targetMethod, object[] args)
         {
             await _aop.Before(args);
             var result = targetMethod.Invoke(_instance, args);

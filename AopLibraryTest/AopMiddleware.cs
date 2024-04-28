@@ -16,14 +16,14 @@ namespace AopLibraryTest
         public Task Invoke(HttpContext context)
         {
             Endpoint endpoint = context.GetEndpoint();
-            var actionDescriptor = endpoint?.Metadata.GetMetadata<ControllerActionDescriptor>();
+            var actionDescriptor = endpoint.Metadata.GetMetadata<ControllerActionDescriptor>();
             if(actionDescriptor != null)
             {
                 var methodInfo = actionDescriptor.MethodInfo;
                //只能拦截方法,不能拦截business业务类
 
             }
-            //if(endpoint?.Metadata is MethodInfo methodInfo)
+            //if(endpoint.Metadata is MethodInfo methodInfo)
             //{
 
             //}

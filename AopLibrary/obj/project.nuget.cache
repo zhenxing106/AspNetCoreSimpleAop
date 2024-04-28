@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ngrG6UT2iw0=",
+  "dgSpecHash": "DvbPZHWk+/Dc71Du+eOJA5fpiVg/R6PDvPg2/1YuMhIYHF1BWD1Jxg7myBSua7kpEMyldfQ7+cOhl8qKVTWEvA==",
   "success": true,
-  "projectFilePath": "D:\\github\\AspNetCoreSimpleAop\\AopLibrary\\AopLibrary.csproj",
+  "projectFilePath": "D:\\LocalCode\\GitHubStore\\AspNetCoreSimpleAop\\AopLibrary\\AopLibrary.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lzx\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+    "C:\\Users\\litte\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

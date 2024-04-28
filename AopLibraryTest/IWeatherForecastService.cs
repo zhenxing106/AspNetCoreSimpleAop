@@ -26,7 +26,7 @@
         public async Task<string> GreetingAsync(string name)
         {
             await Task.CompletedTask;
-            return  $"{name} 你好吗?";
+            return  $"{name} 你好吗";
         }
 
         public async Task GetEmpty()

@@ -7,8 +7,8 @@ namespace AopLibrary
 {
     public interface ISimpleAop
     {
-        Task Before(object?[]? args);
-        Task<object?> After(object? result);
+        Task Before(object[] args);
+        Task<object> After(object result);
     }
 }
 

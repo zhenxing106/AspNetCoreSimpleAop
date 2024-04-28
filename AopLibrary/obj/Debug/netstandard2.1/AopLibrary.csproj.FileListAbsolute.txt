@@ -30,3 +30,14 @@ D:\github\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.csp
 D:\github\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.sourcelink.json
 D:\github\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.dll
 D:\github\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.pdb
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\bin\Debug\netstandard2.1\AopLibrary.deps.json
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\bin\Debug\netstandard2.1\AopLibrary.dll
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\bin\Debug\netstandard2.1\AopLibrary.pdb
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.csproj.AssemblyReference.cache
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.AssemblyInfoInputs.cache
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.AssemblyInfo.cs
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.csproj.CoreCompileInputs.cache
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.sourcelink.json
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.dll
+D:\LocalCode\GitHubStore\AspNetCoreSimpleAop\AopLibrary\obj\Debug\netstandard2.1\AopLibrary.pdb

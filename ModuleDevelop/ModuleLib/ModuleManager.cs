@@ -21,14 +21,14 @@ namespace ModuleLib
             foreach (var moduleType in moduleTypes)
             {
                 var moduleInstance = Activator.CreateInstance(moduleType) as IModule;
-                if(!modules.Contains(moduleInstance))
-                modules.Add(moduleInstance);
+                if (moduleInstance != null && !modules.Contains(moduleInstance))
+                    modules.Add(moduleInstance);
             }
         }
 
         public void LoadModules(IServiceCollection services)
         {
-           modules.ForEach(m => m.ConfigureService(services));
+            modules.ForEach(m => m.ConfigureService(services));
         }
 
         public void Configures(IApplicationBuilder app)

@@ -7,12 +7,12 @@ namespace AopLibrary.CusImplement
 {
     public class DefaultAOP : ISimpleAop
     {
-        public virtual Task<object?> After(object? result)
+        public virtual Task<object> After(object result)
         {
             return Task.FromResult(result);
         }
 
-        public virtual Task Before(object?[]? args)
+        public virtual Task Before(object[] args)
         {
             return Task.CompletedTask;
         }

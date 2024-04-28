@@ -35,6 +35,7 @@ namespace Contract
                     foreach (var type in types)
                     {
                         var plugin = (IPlugin)Activator.CreateInstance(type);
+                        if (plugin != null)
                         _plugins.Add(plugin);
                     }
                 }
